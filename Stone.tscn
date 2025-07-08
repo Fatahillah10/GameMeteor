@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7iqu2lnh8v32"]
+
+[ext_resource type="Script" uid="uid://beledix805vrj" path="res://Stone.gd" id="1_ymqyl"]
+[ext_resource type="Texture2D" uid="uid://b06s4mxxynxbi" path="res://Gray Rock Clipart Transparent PNG Hd, Gray Rock Clip Art, Stone, Crackle, Rock PNG Image For Free Download.png" id="2_ymqyl"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ymqyl"]
+points = PackedVector2Array(171, 154, 168, 182, 173, 191, 195, 199, 218, 184, 202, 136, 179, 138)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_h6aer"]
+points = PackedVector2Array(6.5, -29.5, 24.5, 20.5, 5.5, 31.5, -19.5, 23.5, -24.5, 17.5, -21.5, -13.5, -13.5, -26.5)
+
+[node name="Stone" type="RigidBody2D" groups=["stone"]]
+script = ExtResource("1_ymqyl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(237, -37.0001)
+scale = Vector2(0.222222, 0.222222)
+texture = ExtResource("2_ymqyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(46, -206)
+shape = SubResource("ConvexPolygonShape2D_ymqyl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(238.5, -40.5001)
+shape = SubResource("ConvexPolygonShape2D_h6aer")

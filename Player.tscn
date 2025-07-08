@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyei86n5v2o1d"]
+
+[ext_resource type="Script" uid="uid://b14ampkdocfrd" path="res://Player.gd" id="1_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://kvo31mi0rdje" path="res://06432c19-f4f0-4ea7-9033-1d4966bd8f26.jpeg" id="1_xhfnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpjcp"]
+size = Vector2(110.25, 143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
+size = Vector2(126, 159)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_kpjcp")
+
+[node name="CharacterBody2D" type="Sprite2D" parent="."]
+position = Vector2(573.375, 525.125)
+scale = Vector2(0.245316, 0.237136)
+texture = ExtResource("1_xhfnw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(574.875, 523.75)
+shape = SubResource("RectangleShape2D_kpjcp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(574.75, 524.75)
+shape = SubResource("RectangleShape2D_kne1u")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 466.0
+offset_top = 618.0
+offset_right = 720.0
+offset_bottom = 677.0
+theme_override_font_sizes/font_size = 16
+text = "Nama : Fatahillah Abi Davri
+NIM : 2244190008"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
